@@ -8,6 +8,7 @@ public class SalonApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SalonApplication.class, args);
+//        test
     }
 
 }
