@@ -1,4 +1,4 @@
-package topicisp.salon;
+package com.topicisp.salon;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,10 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import topicisp.salon.model.APPOINTMENTS;
-import topicisp.salon.model.STAFF;
-import topicisp.salon.repository.AppointmentsRepository;
-import topicisp.salon.service.MainService;
+import com.topicisp.salon.model.APPOINTMENTS;
+import com.topicisp.salon.model.STAFF;
+import com.topicisp.salon.repository.AppointmentsRepository;
+import com.topicisp.salon.service.MainService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
