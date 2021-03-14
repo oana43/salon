@@ -54,6 +54,36 @@ public class MainController {
         model.addAttribute("staffMembers", mainService.getStaff());
         return "getStaff";
     }
+    
+    //    Salon Services
+    @GetMapping("/main/getSalServ")
+    public String getSalServ(Model model) {
+        model.addAttribute("SalonServices", mainService.getSalServices());
+        return "getSalServ";
+    }
+
+    @PostMapping("/adaugaSalServ")
+    public String adaugaSalServ(@RequestBody SALON_SERVICES s, @RequestParam int idJob, @RequestParam double extra, Model model) {
+        mainService.adaugaSalServ(s, idJob, extra);
+        model.addAttribute("SalonServices", mainService.getSalServices());
+        return "getSalServ";
+    }
+
+    @PostMapping("/updateSalServ")
+    public String updateSalServ(@RequestBody SALON_SERVICES s, @RequestParam int id, Model model) {
+        mainService.updateSalServ(s,id);
+        model.addAttribute("SalonServices", mainService.getSalServices());
+        return "getSalServ";
+    }
+
+    @GetMapping("/stergeSalServ/{idSalServ}")
+    public String stergeSalServ(@PathVariable int idSalServ, Model model) {
+        mainService.stergeSalServ(idSalServ);
+        model.addAttribute("SalonServices", mainService.getSalServices());
+        return "getSalServ";
+    }
+
+
 
 
 }
