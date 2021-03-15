@@ -113,4 +113,24 @@ public class MainController {
         return "getProgr";
     }
 
+    //Appointment services
+    @GetMapping("/main/getAppServ")
+    public String getAppServ(Model model) {
+        model.addAttribute("AppServices", mainService.getServ());
+        return "getAppServ";
+    }
+
+    @PostMapping("/adaugaAppServ")
+    public String adaugaAppServ(@RequestBody APPOINTMENT_SERVICES s, Model model) {
+        mainService.adaugaServ(s);
+        model.addAttribute("AppServices", mainService.getServ());
+        return "getAppServ";
+    }
+
+    @GetMapping("/stergeAppServ/{idApp}/{idServ}/{idStaff}")
+    public String stergeAppServ(@PathVariable("idApp") int idApp, @PathVariable("idServ") int idServ, @PathVariable("idStaff") int idStaff, Model model) {
+        mainService.stergeServ(idApp, idServ, idStaff);
+        model.addAttribute("AppServices", mainService.getServ());
+        return "getAppServ";
+    }
 }

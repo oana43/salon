@@ -2,11 +2,14 @@ package com.topicisp.salon.repository;
 
 import com.topicisp.salon.model.SALON_SERVICES;
 import com.topicisp.salon.query.Querys;
-import org.hibernate.mapping.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Repository

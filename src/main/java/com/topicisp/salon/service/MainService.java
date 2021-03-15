@@ -77,4 +77,23 @@ public class MainService {
         return appointmentsRepository.stergeProgr(id);
     }
 
+
+    //Appoitment services
+    @Autowired
+    private AppServicesRepository appServicesRepository;
+
+    public List<APPOINTMENT_SERVICES> getServ() {
+        return appServicesRepository.getServ();
+
+    }
+
+    public List<APPOINTMENT_SERVICES> adaugaServ(APPOINTMENT_SERVICES p) {
+        return appServicesRepository.adaugaServ(p);
+    }
+
+    public List<APPOINTMENT_SERVICES> stergeServ(int idApp, int idServ, int idStaff) {
+    return appServicesRepository.stergeServ(idApp, idServ, idStaff);
+    }
+
+
 }
