@@ -43,7 +43,7 @@ public class MainController {
 
     @PostMapping("/updateStaff")
     public String updateStaff(@RequestBody STAFF s, @RequestParam int id, Model model) {
-        mainService.updateStaff(s,id);
+        mainService.updateStaff(s, id);
         model.addAttribute("staffMembers", mainService.getStaff());
         return "getStaff";
     }
@@ -54,7 +54,7 @@ public class MainController {
         model.addAttribute("staffMembers", mainService.getStaff());
         return "getStaff";
     }
-    
+
     //    Salon Services
     @GetMapping("/main/getSalServ")
     public String getSalServ(Model model) {
@@ -71,7 +71,7 @@ public class MainController {
 
     @PostMapping("/updateSalServ")
     public String updateSalServ(@RequestBody SALON_SERVICES s, @RequestParam int id, Model model) {
-        mainService.updateSalServ(s,id);
+        mainService.updateSalServ(s, id);
         model.addAttribute("SalonServices", mainService.getSalServices());
         return "getSalServ";
     }
@@ -84,6 +84,33 @@ public class MainController {
     }
 
 
+//    Appointments
 
+    @GetMapping("/main/getProgr")
+    public String getProgr(Model model) {
+        model.addAttribute("Programari", mainService.getProgr());
+        return "getProgr";
+    }
+
+    @PostMapping("/adaugaProgr")
+    public String adaugaProgr(@RequestBody APPOINTMENTS s, Model model) {
+        mainService.adaugaProgr(s);
+        model.addAttribute("Programari", mainService.getProgr());
+        return "getProgr";
+    }
+
+    @PostMapping("/updateProgr")
+    public String updateProgr(@RequestBody APPOINTMENTS s, @RequestParam int id, Model model) {
+        mainService.updateProgr(s, id);
+        model.addAttribute("Programari", mainService.getProgr());
+        return "getProgr";
+    }
+
+    @GetMapping("/stergeProgr/{idProgr}")
+    public String stergeProgr(@PathVariable int idProgr, Model model) {
+        mainService.stergeProgr(idProgr);
+        model.addAttribute("Programari", mainService.getProgr());
+        return "getProgr";
+    }
 
 }

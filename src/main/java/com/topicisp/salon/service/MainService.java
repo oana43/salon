@@ -18,6 +18,7 @@ public class MainService {
     public List<STAFF> getStaff() {
         return staffRepository.getStaff();
     }
+
     public List<STAFF> getStaffById(int id) {
         return staffRepository.getStaffById(id);
     }
@@ -33,7 +34,7 @@ public class MainService {
     public List<STAFF> stergeAngajat(int id) {
         return staffRepository.stergeAngajat(id);
     }
-}
+
 
     //    Salon Services
 
@@ -54,3 +55,26 @@ public class MainService {
 
     public List<SALON_SERVICES> stergeSalServ(int id) {
         return salServicesRepository.stergeSalServ(id);
+    }
+
+    //    Appointments
+    @Autowired
+    private AppointmentsRepository appointmentsRepository;
+
+    public List<APPOINTMENTS> getProgr() {
+        return appointmentsRepository.getProgr();
+    }
+
+    public List<APPOINTMENTS> adaugaProgr(APPOINTMENTS p) {
+        return appointmentsRepository.adaugaProgr(p);
+    }
+
+    public List<APPOINTMENTS> updateProgr(APPOINTMENTS p, int id) {
+        return appointmentsRepository.updateProgr(p, id);
+    }
+
+    public List<APPOINTMENTS> stergeProgr(int id) {
+        return appointmentsRepository.stergeProgr(id);
+    }
+
+}
