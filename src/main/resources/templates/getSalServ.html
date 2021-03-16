@@ -334,6 +334,69 @@
         <p>© 2021 Beauty Salon. All Rights Reserved.</p>
     </div>
 </div>
+<script>
+    function editSalServ() {
+        var salsidInput = $("#salsid").val();
+        var numeInput = $("#nume_ed").val();
+        var descInput = $("#desc_ed").val();
+        var pretInput = $("#pret_ed").val();
+        var subcInput = $("#subc_ed").val();
+        var promoInput = $("#promo_ed").val();
 
+        const dataServer = {
+            salon_service_name: numeInput,
+            salon_service_description: descInput,
+            salon_standard_price: pretInput,
+            salon_service_subcategory_id: subcInput,
+            promotion_id: promoInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/updateSalServ?id=" + salsidInput,
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getSalServ"
+            }
+        })
+    }
+
+    function addNewSalServ() {
+        var numeInput = $("#nume").val();
+        var descInput = $("#desc").val();
+        var pretInput = $("#pret").val();
+        var subcInput = $("#subc").val();
+        var promoInput = $("#promo").val();
+
+        var jobidInput = $("#jobid").val();
+        var extraInput = $("#extra").val();
+
+
+        const dataServer = {
+            salon_service_name: numeInput,
+            salon_service_description: descInput,
+            salon_standard_price: pretInput,
+            salon_service_subcategory_id: subcInput,
+            promotion_id: promoInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/adaugaSalServ?idJob=" + jobidInput + "&extra=" + extraInput,
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getSalServ"
+            }
+        })
+    }
+</script>
 </body>
 </html>
