@@ -294,6 +294,57 @@
         <p>© 2021 Beauty Salon. All Rights Reserved.</p>
     </div>
 </div>
+<script>
+    function editStaff() {
+        var staffId = $("#staffid_ed").val();
+        var jobInput = $("#jobid_ed").val();
+        var numeInput = $("#nume_ed").val();
+        var salariuInput = $("#salariu_ed").val();
 
+        const dataServer = {
+            job_id: jobInput,
+            staff_name: numeInput,
+            base_salary: salariuInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/updateStaff?id=" + staffId,
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getStaff"
+            }
+        })
+    }
+
+    function addNewStaff() {
+        var jobInput = $("#jobid").val();
+        var numeInput = $("#nume").val();
+        var salariuInput = $("#salariu").val();
+
+        const dataServer = {
+            job_id: jobInput,
+            staff_name: numeInput,
+            base_salary: salariuInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/adaugaStaff",
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getStaff"
+            }
+        })
+    }
+</script>
 </body>
 </html>
