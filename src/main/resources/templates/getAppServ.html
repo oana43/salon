@@ -10,34 +10,6 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-    <script>
-
-        function addNewServ() {
-            console.log("test");
-            var appIdInput = $("#appid").val();
-            var servInput = $("#serv").val();
-            var staffInput = $("#staff").val();
-
-            const dataServer = {
-                appointment_id: appIdInput,
-                salon_service_id: servInput,
-                staff_id: staffInput
-            }
-
-            console.log(dataServer);
-
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "http://localhost:9090/adaugaAppServ",
-                data: JSON.stringify(dataServer),
-                success: function (data) {
-                    console.log(data);
-                    window.location = "http://localhost:9090/main/getAppServ"
-                }
-            })
-        }
-    </script>
     <style>
 
         body {
@@ -285,6 +257,35 @@
         <p>© 2021 Beauty Salon. All Rights Reserved.</p>
     </div>
 </div>
+
+<script>
+
+    function addNewServ() {
+        console.log("test");
+        var appIdInput = $("#appid").val();
+        var servInput = $("#serv").val();
+        var staffInput = $("#staff").val();
+
+        const dataServer = {
+            appointment_id: appIdInput,
+            salon_service_id: servInput,
+            staff_id: staffInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/adaugaAppServ",
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getAppServ"
+            }
+        })
+    }
+</script>
 
 </body>
 </html>
