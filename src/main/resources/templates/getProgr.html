@@ -224,6 +224,37 @@
             </div>
         </div>
 
+        <div class="col-sm-6">
+            <h4>Editeaza Programare</h4>
+            <div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="appid_text">Appointment ID</span>
+                    </div>
+                    <input type="text" placeholder="" id="appid_ed">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="clientid2_text">Client ID</span>
+                    </div>
+                    <input type="text" placeholder="" id="clientid_ed">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="data2_text">Data</span>
+                    </div>
+                    <input type="text" placeholder="" id="data_ed">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="ora2_text">Ora</span>
+                    </div>
+                    <input type="text" placeholder="" id="ora_ed">
+                </div>
+                <input type="button" class="btn btn-outline-primary" onclick="editProgr()"
+                       value="Salveaza Modificarile">
+            </div>
+        </div>
     </div>
     <div class="scrollTable">
         <table class="table myTable">
@@ -265,6 +296,32 @@
     </div>
 </div>
 <script>
+    function editProgr() {
+        var progrId = $("#appid_ed").val();
+        var clientIdInput = $("#clientid_ed").val();
+        var dataInput = $("#data_ed").val();
+        var oraInput = $("#ora_ed").val();
+
+        const dataServer = {
+            client_id: clientIdInput,
+            appointment_date: dataInput,
+            appointment_time: oraInput
+        }
+
+        console.log(dataServer);
+
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "http://localhost:9090/updateProgr?id=" + progrId,
+            data: JSON.stringify(dataServer),
+            success: function (data) {
+                console.log(data);
+                window.location = "http://localhost:9090/main/getProgr"
+            }
+        })
+    }
+
     function addNewProgr() {
         var clientIdInput = $("#clientid").val();
         var dataInput = $("#data").val();
