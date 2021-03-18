@@ -133,4 +133,33 @@ public class MainController {
         model.addAttribute("AppServices", mainService.getServ());
         return "getAppServ";
     }
+
+    //    Clients
+    @GetMapping("/main/getClients")
+    public String getClients(Model model) {
+        model.addAttribute("Clients", mainService.getClients());
+        return "getClients";
+    }
+
+    @PostMapping("/adaugaClient")
+    public String adaugaClient(@RequestBody CLIENTS s, Model model) {
+        mainService.adaugaClient(s);
+        model.addAttribute("Clients", mainService.getClients());
+        return "getClients";
+    }
+
+    @PostMapping("/updateClient")
+    public String updateClient(@RequestBody CLIENTS s, @RequestParam int id, Model model) {
+        mainService.updateClient(s,id);
+        model.addAttribute("Clients", mainService.getClients());
+        return "getClients";
+    }
+
+    @GetMapping("/stergeClient/{idClient}")
+    public String stergeClient(@PathVariable int idClient, Model model) {
+        mainService.stergeClient(idClient);
+        model.addAttribute("Clients", mainService.getClients());
+        return "getClients";
+    }
+
 }

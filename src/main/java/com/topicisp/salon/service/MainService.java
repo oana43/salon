@@ -96,4 +96,25 @@ public class MainService {
     }
 
 
+    //    Clients
+    @Autowired
+    private ClientsRepository clientsRepository;
+
+    public List<CLIENTS> getClients() {
+        return clientsRepository.getClients();
+    }
+
+    public List<CLIENTS> adaugaClient(CLIENTS s) {
+        return clientsRepository.adaugaClient(s);
+    }
+
+    public List<CLIENTS> updateClient(CLIENTS s, int id) {
+        return clientsRepository.updateClient(s, id);
+    }
+
+    public List<CLIENTS> stergeClient(int id) {
+        return clientsRepository.stergeClient(id);
+    }
+
+
 }
