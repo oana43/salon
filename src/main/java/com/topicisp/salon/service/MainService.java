@@ -117,4 +117,13 @@ public class MainService {
     }
 
 
+    //Payments
+
+    @Autowired
+
+    private OthersRepository othersRepository;
+    /*
+    public List<PAYMENTS> getPayment(){
+        return     othersRepository.getPayment();
+    }*/
 }

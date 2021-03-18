@@ -162,4 +162,11 @@ public class MainController {
         return "getClients";
     }
 
+    //Payments
+
+    @GetMapping("/main/getPayment")
+    public String getPayment(Model model) {
+       // model.addAttribute("Payments", mainService.getPayment());
+        return "getPayment";
+    }
 }
