@@ -53,7 +53,7 @@ public class MainService {
         return salServicesRepository.updateSalServ(s, id);
     }
 
-    public List<SALON_SERVICES> stergeSalServ(int id) {
+    public List<SALON_SERVICES> stergeSalServ(int id)    {
         return salServicesRepository.stergeSalServ(id);
     }
 
@@ -78,7 +78,7 @@ public class MainService {
     }
 
 
-    //Appoitment services
+    //Appointment services
     @Autowired
     private AppServicesRepository appServicesRepository;
 
@@ -117,15 +117,43 @@ public class MainService {
     }
 
 
-    //Payments
+    //    Others
 
     @Autowired
-
     private OthersRepository othersRepository;
-    /*
-    public List<PAYMENTS> getPayment(){
-        return     othersRepository.getPayment();
-    }*/
+
+    public List<SALON_SERVICE_CATEGORY> getCategories() {
+        return othersRepository.getCategories();
+    }
+
+    public List<SALON_SERVICE_SUBCATEGORY> getSubcategories() {
+        return othersRepository.getSubcategories();
+    }
+
+    public List<PROMOTIONS> getPromo() {
+        return othersRepository.getPromo();
+    }
+
+    public List<STAFF_EXTRA_CHARGE> getExtraCharge() {
+        return othersRepository.getExtraCharge();
+    }
+
+    public List<STAFF_JOB_TITLE> getJobs() {
+        return othersRepository.getJobs();
+    }
+
+    public List<AGE_CATEGORY> getAgeCat() {
+        return othersRepository.getAgeCat();
+    }
+
+    public List<PAYMENT_METHODS> getPayMet() {
+        return othersRepository.getPayMet();
+    }
+
+    public List<PAYMENTS> getPayment() {
+        return othersRepository.getPayment();
+    }
+
 
     //    Depozit
     @Autowired

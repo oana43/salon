@@ -162,11 +162,53 @@ public class MainController {
         return "getClients";
     }
 
-    //Payments
+//   Others
+
+    @GetMapping("/main/getCategories")
+    public String getCategories(Model model) {
+        model.addAttribute("Categories", mainService.getCategories());
+        return "getCategories";
+    }
+
+    @GetMapping("/main/getSubcategories")
+    public String getSubcategories(Model model) {
+        model.addAttribute("Subcategories", mainService.getSubcategories());
+        return "getSubcategories";
+    }
+
+    @GetMapping("/main/getPromo")
+    public String getPromo(Model model) {
+        model.addAttribute("Promo", mainService.getPromo());
+        return "getPromo";
+    }
+
+    @GetMapping("/main/getExtraCharge")
+    public String getExtraCharge(Model model) {
+        model.addAttribute("ExtraCharge", mainService.getExtraCharge());
+        return "getExtraCharge";
+    }
+
+    @GetMapping("/main/getJobs")
+    public String getJobs(Model model) {
+        model.addAttribute("Jobs", mainService.getJobs());
+        return "getJobs";
+    }
+
+    @GetMapping("/main/getAgeCat")
+    public String getAgeCat(Model model) {
+        model.addAttribute("AgeCat", mainService.getAgeCat());
+        return "getAgeCat";
+    }
+
+    @GetMapping("/main/getPayMet")
+    public String getPayMet(Model model) {
+        model.addAttribute("PayMet", mainService.getPayMet());
+        return "getPayMet";
+    }
 
     @GetMapping("/main/getPayment")
     public String getPayment(Model model) {
-       // model.addAttribute("Payments", mainService.getPayment());
+        model.addAttribute("Payments", mainService.getPayment());
         return "getPayment";
     }
 
