@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BS | Metode Plata</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+    <!--            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+    <!--            crossorigin="anonymous"></script>-->
+    <!--&lt;!&ndash;    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"&ndash;&gt;-->
+    <!--&lt;!&ndash;            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"&ndash;&gt;-->
+    <!--&lt;!&ndash;            crossorigin="anonymous"></script>&ndash;&gt;-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <style>
+
+        body {
+            color: #555;
+            font-family: roboto;
+        }
+
+        .cover {
+            height: 360px;
+            background: url(https://demo.oceanthemes.net/modis/wp-content/themes/modis/images/subheader-4.jpg);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        th {
+            color: #555;
+            font-weight: bold;
+            line-height: 1.8em;
+            font-size: 14px;
+        }
+
+        td {
+            color: #555;
+            line-height: 1.8em;
+            font-size: 14px;
+        }
+
+        .btn-outline-primary {
+            color: #de3370;
+            border-color: #de3370;
+        }
+
+        .btn-outline-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255 0 94 0.5);
+        }
+
+        .btn-outline-primary:active, .btn-outline-primary:hover {
+            color: #fff;
+            background-color: #de3370;
+            border-color: #de3370;
+        }
+
+        .myTable {
+            background-color: #F8F8F8;
+        }
+
+        .input-group-text {
+            color: #de3370;
+            background-color: #ffe7f0;
+            border: 1px solid #de3370;
+        }
+
+        .pageTitle {
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+            padding: 150px;
+        }
+
+        .scrollTable {
+            max-height: 700px;
+            height: 100%;
+            overflow-y: scroll;
+            margin-bottom: 35px;
+        }
+
+        footer {
+            color: #fff;
+            background-color: #111111;
+            height: 200px;
+            text-align: center;
+        }
+
+        .contact {
+            padding-top: 50px;
+        }
+
+        .footerText {
+            font-size: 18px;
+            line-height: 22px;
+        }
+
+        .footerImg {
+            width: 30px;
+            margin: 0 5px;
+        }
+
+        .copyright {
+            height: 50px;
+            color: #fff;
+            background-color: #151515;
+            text-align: left;
+            font-size: 14px;
+            padding-top: 15px;
+        }
+
+        .myNav {
+            background-color: #de3370;
+            color: #fff;
+        }
+
+        nav a{
+            color: #fff;
+        }
+
+        nav a:hover{
+            color: #fff;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg myNav">
+    <div class="container">
+        <a class="navbar-brand" href="#">Salon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/main">Acasa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getStaff">Angajati <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getProgr">Programari</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getAppServ">Servicii Programari</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getSalServ">Servicii Salon</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getClients">Clienti</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/getPayment">Plati</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Depozit
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/main/getStaffDw">Angajati</a>
+                        <a class="dropdown-item" href="/main/getPaymentsDw">Plati</a>
+                        <a class="dropdown-item" href="/main/getServValueDw">Tabela de fapte</a>
+                        <a class="dropdown-item" href="/main/getSalServDw">Servicii</a>
+                        <a class="dropdown-item" href="/main/getPromoDw">Promotii</a>
+                        <a class="dropdown-item" href="/main/getClientsDw">Clienti</a>
+                        <a class="dropdown-item" href="/main/getTimpDw">Timp</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Altele
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/main/getCategories">Categorii</a>
+                        <a class="dropdown-item" href="/main/getSubcategories">Subcategorii</a>
+                        <a class="dropdown-item" href="/main/getPromo">Promotii</a>
+                        <a class="dropdown-item" href="/main/getExtraCharge">Extra Charge</a>
+                        <a class="dropdown-item" href="/main/getJobs">Joburi</a>
+                        <a class="dropdown-item" href="/main/getAgeCat">Categorii de varsta</a>
+                        <a class="dropdown-item" href="/main/getPayMet">Metode de plata</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="cover">
+    <h1 class="pageTitle">Metode de Plata</h1>
+</div>
+<div class="container">
+
+    <div class="scrollTable">
+        <table class="table myTable">
+            <tr>
+                <th>ID Metode de Plata</th>
+                <th>Nume Metode de Plata</th>
+                <th>Descriere Metode de Plata</th>
+            </tr>
+            <tr th:each="p: ${PayMet}">
+                <td th:text="${p.payment_method_id}"></td>
+                <td th:text="${p.payment_method_name}"></td>
+                <td th:text="${p.payment_method_description}"></td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+<footer>
+    <div class="contact">
+        <p class="footerText">Pentru programari, puteti suna la 0723 282 291 <br>
+            sau ne puteti scire la salon@contact.ro</p>
+        <img src="https://casutadinscobai.ro/res/img/icons/facebook-w.png" alt="" class="footerImg">
+        <img src="https://casutadinscobai.ro/res/img/icons/whatsapp-w.png" alt="" class="footerImg">
+        <img src="https://casutadinscobai.ro/res/img/icons/instagram-w.png" alt="" class="footerImg">
+    </div>
+</footer>
+<div class="copyright">
+    <div class="container">
+        <p>© 2021 Beauty Salon. All Rights Reserved.</p>
+    </div>
+</div>
+
+</body>
+</html>
