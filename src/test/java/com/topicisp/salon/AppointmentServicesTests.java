@@ -6,10 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-//import proiect_dw.proiect_dw.model.APPOINTMENT_SERVICES;
-//import proiect_dw.proiect_dw.model.STAFF;
-//import proiect_dw.proiect_dw.repository.AppServicesRepository;
-//import proiect_dw.proiect_dw.service.MainService;
+import com.topicisp.salon.model.APPOINTMENT_SERVICES;
+import com.topicisp.salon.model.STAFF;
+import com.topicisp.salon.repository.AppServicesRepository;
+import com.topicisp.salon.service.MainService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class AppointmentServicesTests {
-    /*
+
     @InjectMocks
     private MainService mainService;
 
@@ -79,5 +79,5 @@ public class AppointmentServicesTests {
         //verify
         verify(appServicesRepository, times(1)).stergeServ(1002,67,5);
 
-    }*/
+    }
 }

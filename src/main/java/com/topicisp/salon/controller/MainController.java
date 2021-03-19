@@ -169,4 +169,60 @@ public class MainController {
        // model.addAttribute("Payments", mainService.getPayment());
         return "getPayment";
     }
+
+    //    Depozit
+
+    @GetMapping("/main/getClientsDw")
+    public String getClientsDw(Model model) {
+        model.addAttribute("ClientsDw", mainService.getClientsDw());
+        return "getClientsDw";
+    }
+
+    @GetMapping("/main/getPaymentsDw")
+    public String getPaymentsDw(Model model) {
+        model.addAttribute("PaymentsDw", mainService.getPaymentsDw());
+        return "getPaymentsDw";
+    }
+
+    @GetMapping("/main/getPromoDw")
+    public String getPromoDw(Model model) {
+        model.addAttribute("PromoDw", mainService.getPromoDw());
+        return "getPromoDw";
+    }
+
+    @GetMapping("/main/getSalServDw")
+    public String getSalServDw(Model model) {
+        model.addAttribute("SalServDw", mainService.getSalServDw());
+        return "getSalServDw";
+    }
+
+    @GetMapping("/main/getServValueDw")
+    public String getServValueDw(Model model) {
+        model.addAttribute("ServValueDw", mainService.getServValueDw());
+        return "getServValueDw";
+    }
+
+    @GetMapping("/main/getStaffDw")
+    public String getStaffDw(Model model) {
+        model.addAttribute("StaffDw", mainService.getStaffDw());
+        return "getStaffDw";
+    }
+
+    @GetMapping("/main/getJobsDw")
+    public String getJobsDw(Model model) {
+        model.addAttribute("JobsDw", mainService.getJobsDw());
+        return "getJobsDw";
+    }
+
+    @GetMapping("/main/getTimpDw")
+    public String getTimpDw(Model model) {
+        model.addAttribute("TimpDw", mainService.getTimpDw());
+        return "getTimpDw";
+    }
+
+    @GetMapping("/templatePagina")
+    public String getTemplate(Model model) {
+//        model.addAttribute("TimpDw", mainService.getTimpDw());
+        return "templatePagina";
+    }
 }

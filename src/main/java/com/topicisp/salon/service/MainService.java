@@ -126,4 +126,40 @@ public class MainService {
     public List<PAYMENTS> getPayment(){
         return     othersRepository.getPayment();
     }*/
+
+    //    Depozit
+    @Autowired
+    private DepozitRepository depozitRepository;
+
+    public List<CLIENTS_DW> getClientsDw() {
+        return depozitRepository.getClientsDw();
+    }
+
+    public List<PAYMENTS_DW> getPaymentsDw() {
+        return depozitRepository.getPaymentsDw();
+    }
+
+    public List<PROMOTIONS_DW> getPromoDw() {
+        return depozitRepository.getPromoDw();
+    }
+
+    public List<SALON_SERVICES_DW> getSalServDw() {
+        return depozitRepository.getSalServDw();
+    }
+
+    public List<SERVICES_VALUE_DW> getServValueDw() {
+        return depozitRepository.getServValueDw();
+    }
+
+    public List<STAFF_DW> getStaffDw() {
+        return depozitRepository.getStaffDw();
+    }
+
+    public List<STAFF_JOB_TITLE_DW> getJobsDw() {
+        return depozitRepository.getJobsDw();
+    }
+
+    public List<TIMP_DW> getTimpDw() {
+        return depozitRepository.getTimpDw();
+    }
 }
